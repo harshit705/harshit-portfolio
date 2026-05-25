@@ -1,6 +1,7 @@
-import { useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
+import { useRef, useEffect } from 'react';
 
-export default function CyberParallaxBackground() {
+export function AnimatedBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -17,7 +18,6 @@ export default function CyberParallaxBackground() {
     const FPS = 60;
     const FRAME_TIME = 1000 / FPS;
 
-    // Particle config
     const particles = Array.from({ length: 32 }, () => ({
       x: Math.random() * width,
       y: Math.random() * height,
@@ -33,6 +33,7 @@ export default function CyberParallaxBackground() {
       canvas!.width = width;
       canvas!.height = height;
     }
+
     window.addEventListener('resize', resize);
     resize();
 
@@ -43,6 +44,7 @@ export default function CyberParallaxBackground() {
       }
       lastFrame = now;
       ctx!.clearRect(0, 0, width, height);
+
       const grad = ctx!.createLinearGradient(0, 0, width, height);
       grad.addColorStop(0, '#0a1833');
       grad.addColorStop(1, '#101a2b');
@@ -66,6 +68,7 @@ export default function CyberParallaxBackground() {
       animationId = requestAnimationFrame(draw);
     }
     draw();
+
     return () => {
       window.removeEventListener('resize', resize);
       cancelAnimationFrame(animationId);
@@ -73,7 +76,7 @@ export default function CyberParallaxBackground() {
   }, []);
 
   return (
-    <canvas
+    <motion.canvas
       ref={canvasRef}
       style={{
         position: 'fixed',

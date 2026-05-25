@@ -203,4 +203,14 @@
   .backdrop-blur-custom {
     backdrop-filter: blur(10px);
   }
+
+  /* Performance optimizations */
+  .will-animate {
+    will-change: transform, opacity;
+  }
+
+  .transform-gpu {
+    transform: translateZ(0);
+    will-change: auto;
+  }
 }
