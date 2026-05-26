@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { useRef, useEffect } from 'react';
 
 export function AnimatedBackground() {
@@ -15,16 +14,16 @@ export function AnimatedBackground() {
     let height = window.innerHeight;
     let animationId: number;
     let lastFrame = 0;
-    const FPS = 60;
+    const FPS = 30;
     const FRAME_TIME = 1000 / FPS;
 
-    const particles = Array.from({ length: 32 }, () => ({
+    const particles = Array.from({ length: 16 }, () => ({
       x: Math.random() * width,
       y: Math.random() * height,
-      r: 1.5 + Math.random() * 2.5,
-      dx: 0.1 + Math.random() * 0.15,
-      dy: 0.05 + Math.random() * 0.1,
-      glow: 0.5 + Math.random() * 1.5,
+      r: 1.5 + Math.random() * 2,
+      dx: 0.08 + Math.random() * 0.12,
+      dy: 0.04 + Math.random() * 0.08,
+      glow: 0.4 + Math.random() * 1,
     }));
 
     function resize() {
@@ -55,9 +54,9 @@ export function AnimatedBackground() {
         ctx!.save();
         ctx!.beginPath();
         ctx!.arc(p.x, p.y, p.r, 0, 2 * Math.PI);
-        ctx!.shadowColor = 'rgba(0,180,255,0.7)';
-        ctx!.shadowBlur = 16 * p.glow;
-        ctx!.fillStyle = 'rgba(0,180,255,0.15)';
+        ctx!.shadowColor = 'rgba(0,180,255,0.5)';
+        ctx!.shadowBlur = 12 * p.glow;
+        ctx!.fillStyle = 'rgba(0,180,255,0.12)';
         ctx!.fill();
         ctx!.restore();
         p.x += p.dx * p.glow;
@@ -76,7 +75,7 @@ export function AnimatedBackground() {
   }, []);
 
   return (
-    <motion.canvas
+    <canvas
       ref={canvasRef}
       style={{
         position: 'fixed',

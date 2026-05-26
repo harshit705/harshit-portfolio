@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { ReactNode } from 'react';
 
 interface SectionHeadingProps {
@@ -16,13 +15,7 @@ export function SectionHeading({ title, subtitle, icon, accentColor = 'blue' }: 
   };
 
   return (
-    <motion.div
-      className="mb-8"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
-    >
+    <div className="mb-8">
       <div className="flex items-center gap-3 mb-4">
         {icon && <div className={`text-${accentColor}-400`}>{icon}</div>}
         <h3 className={`text-4xl md:text-5xl font-bold bg-gradient-to-r ${colorMap[accentColor]} bg-clip-text text-transparent`}>
@@ -30,13 +23,7 @@ export function SectionHeading({ title, subtitle, icon, accentColor = 'blue' }: 
         </h3>
       </div>
       {subtitle && <p className="text-gray-400 text-lg mb-4">{subtitle}</p>}
-      <motion.div
-        className={`w-16 h-1 bg-gradient-to-r ${colorMap[accentColor]} rounded-full`}
-        initial={{ width: 0 }}
-        whileInView={{ width: 64 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-      />
-    </motion.div>
+      <div className={`w-16 h-1 bg-gradient-to-r ${colorMap[accentColor]} rounded-full`} />
+    </div>
   );
 }

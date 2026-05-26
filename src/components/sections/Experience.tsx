@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { Award, Briefcase } from 'lucide-react';
-import { containerVariants, itemVariants } from '../../utils/animations';
 import { SectionHeading } from '../ui/SectionHeading';
 import { GlassCard } from '../ui/GlassCard';
 import { EXPERIENCES } from '../../utils/constants';
@@ -15,13 +14,7 @@ export function Experience() {
           icon={<Award size={36} />}
         />
 
-        <motion.div
-          className="space-y-6"
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: '-100px' }}
-          variants={containerVariants}
-        >
+        <div className="space-y-6">
           {/* Timeline */}
           <div className="relative">
             {/* Vertical Timeline Line */}
@@ -30,7 +23,7 @@ export function Experience() {
             {/* Experience Cards */}
             <div className="space-y-6">
               {EXPERIENCES.map((exp) => (
-                <motion.div key={exp.id} variants={itemVariants}>
+                <div key={exp.id}>
                   <div className="flex gap-6 md:gap-8">
                     {/* Timeline Dot */}
                     <div className="hidden md:flex flex-shrink-0">
@@ -60,26 +53,23 @@ export function Experience() {
                         {/* Highlights */}
                         <ul className="space-y-2">
                           {exp.highlights.map((highlight, idx) => (
-                            <motion.li
+                            <li
                               key={idx}
                               className="flex items-start gap-2 text-gray-400 text-sm"
-                              initial={{ opacity: 0, x: -10 }}
-                              whileInView={{ opacity: 1, x: 0 }}
-                              transition={{ delay: idx * 0.1 }}
                             >
                               <span className="text-cyan-400 font-bold mt-1">›</span>
                               <span>{highlight}</span>
-                            </motion.li>
+                            </li>
                           ))}
                         </ul>
                       </div>
                     </GlassCard>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

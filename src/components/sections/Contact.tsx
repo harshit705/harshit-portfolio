@@ -2,7 +2,6 @@ import { motion } from 'framer-motion';
 import { Mail, Github, Linkedin, Send, CheckCircle } from 'lucide-react';
 import { useState, FormEvent, useRef } from 'react';
 import emailjs from '@emailjs/browser';
-import { containerVariants, itemVariants } from '../../utils/animations';
 import { SectionHeading } from '../ui/SectionHeading';
 import { AnimatedButton } from '../ui/AnimatedButton';
 import { GlassCard } from '../ui/GlassCard';
@@ -44,13 +43,7 @@ export function Contact() {
       <div className="max-w-3xl mx-auto px-6">
         <SectionHeading title="Let's Connect" subtitle="Have a project in mind? Let's discuss how I can help." accentColor="blue" />
 
-        <motion.div
-          className="space-y-8"
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: '-100px' }}
-          variants={containerVariants}
-        >
+        <div className="space-y-8">
           <GlassCard glowColor="blue" className="p-8 md:p-12">
             <form ref={formRef} onSubmit={handleContactSubmit} className="space-y-6">
               <div>
@@ -140,7 +133,7 @@ export function Contact() {
             )}
           </GlassCard>
 
-          <motion.div className="flex justify-center gap-4" variants={itemVariants}>
+          <div className="flex justify-center gap-4">
             {socialLinks.map((link) => (
               <motion.a
                 key={link.label}
@@ -155,8 +148,8 @@ export function Contact() {
                 <link.icon size={24} />
               </motion.a>
             ))}
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   );

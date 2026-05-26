@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { Database, Github, ExternalLink } from 'lucide-react';
-import { containerVariants, itemVariants, cardHoverVariants } from '../../utils/animations';
 import { SectionHeading } from '../ui/SectionHeading';
 import { GlassCard } from '../ui/GlassCard';
 import { PROJECTS } from '../../utils/constants';
@@ -15,15 +14,9 @@ export function Projects() {
           icon={<Database size={36} />}
         />
 
-        <motion.div
-          className="space-y-6"
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: '-100px' }}
-          variants={containerVariants}
-        >
+        <div className="space-y-6">
           {PROJECTS.filter((p) => p.featured).map((project) => (
-            <motion.div key={project.id} variants={itemVariants}>
+            <div key={project.id}>
               <GlassCard glowColor="cyan" className="p-6 md:p-10">
                 <div className="flex flex-col md:flex-row items-start justify-between gap-6 mb-6">
                   <div className="flex-1">
@@ -43,12 +36,7 @@ export function Projects() {
                   </div>
 
                   {/* Project Links */}
-                  <motion.div
-                    className="flex gap-3 flex-shrink-0"
-                    whileHover="hover"
-                    initial="rest"
-                    variants={cardHoverVariants}
-                  >
+                  <div className="flex gap-3 flex-shrink-0">
                     {project.github && (
                       <motion.a
                         href={project.github}
@@ -75,18 +63,12 @@ export function Projects() {
                         <ExternalLink size={24} className="text-cyan-400" />
                       </motion.a>
                     )}
-                  </motion.div>
+                  </div>
                 </div>
 
                 {/* Key Metrics */}
                 {project.metrics && project.metrics.length > 0 && (
-                  <motion.div
-                    className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6 py-6 border-y border-gray-700/50"
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.2 }}
-                  >
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6 py-6 border-y border-gray-700/50">
                     {project.metrics.map((metric, idx) => (
                       <div key={idx} className="text-center">
                         <p className="text-cyan-400 font-bold text-lg md:text-2xl">
@@ -95,17 +77,11 @@ export function Projects() {
                         <p className="text-gray-400 text-sm">{metric.label}</p>
                       </div>
                     ))}
-                  </motion.div>
+                  </div>
                 )}
 
                 {/* Tech Stack Tags */}
-                <motion.div
-                  className="flex flex-wrap gap-2"
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.3 }}
-                >
+                <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag, idx) => (
                     <motion.span
                       key={idx}
@@ -116,11 +92,11 @@ export function Projects() {
                       {tag}
                     </motion.span>
                   ))}
-                </motion.div>
+                </div>
               </GlassCard>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

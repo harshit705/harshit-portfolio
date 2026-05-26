@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { containerVariants, itemVariants } from '../../utils/animations';
 import { SectionHeading } from '../ui/SectionHeading';
 import { ABOUT, CAREER_OBJECTIVE, EDUCATION } from '../../utils/constants';
 import { GlassCard } from '../ui/GlassCard';
@@ -11,33 +10,22 @@ export function About() {
       {/* About Description Section */}
       <section className="py-12 md:py-16">
         <div className="max-w-6xl mx-auto px-6">
-          <motion.div
-            className="grid md:grid-cols-3 gap-8"
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: '-100px' }}
-            variants={containerVariants}
-          >
+          <div className="grid md:grid-cols-3 gap-8">
             {ABOUT.highlights.map((highlight) => (
-              <motion.div key={highlight} variants={itemVariants}>
+              <div key={highlight}>
                 <GlassCard glowColor="blue" className="p-6 text-center">
                   <p className="text-lg font-semibold text-blue-300">{highlight}</p>
                 </GlassCard>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Career Objective */}
       <section className="py-8 md:py-12">
         <div className="max-w-6xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
+          <div>
             <GlassCard glowColor="blue" className="p-12 md:p-16">
               <div className="flex items-start gap-6">
                 <motion.div className="p-4 bg-gradient-to-br from-blue-500/30 to-cyan-500/20 rounded-2xl flex-shrink-0 hidden md:block" whileHover={{ scale: 1.1, rotate: 5 }}>
@@ -51,7 +39,7 @@ export function About() {
                 </div>
               </div>
             </GlassCard>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -59,12 +47,7 @@ export function About() {
       <section className="py-8 md:py-12">
         <div className="max-w-6xl mx-auto px-6">
           <SectionHeading title="Education" accentColor="blue" icon={<BookOpen size={36} />} />
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
+          <div>
             <GlassCard glowColor="blue" className="p-8 md:p-10">
               <div className="flex items-start gap-4">
                 <motion.div className="p-3 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-lg flex-shrink-0" whileHover={{ scale: 1.1 }}>
@@ -84,7 +67,7 @@ export function About() {
                 </div>
               </div>
             </GlassCard>
-          </motion.div>
+          </div>
         </div>
       </section>
     </>
