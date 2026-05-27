@@ -8,6 +8,8 @@ export interface Project {
   link?: string;
   github?: string;
   featured: boolean;
+  problemSolved?: string;
+  impact?: string;
 }
 
 export interface Experience {

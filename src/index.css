@@ -189,10 +189,6 @@
     @apply transition-colors duration-300;
   }
 
-  /* Section fade in on scroll */
-  section {
-    animation: fade-in 0.8s ease-out;
-  }
 }
 
 @layer utilities {

@@ -17,7 +17,13 @@ export function Layout({ children }: LayoutProps) {
         for (const entry of entries) {
           if (entry.isIntersecting) {
             const id = entry.target.id;
-            if (id) setActiveSection(id);
+            if (id) {
+              if (id === 'hero') {
+                setActiveSection('about');
+              } else {
+                setActiveSection(id);
+              }
+            }
           }
         }
       },

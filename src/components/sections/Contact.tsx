@@ -6,6 +6,7 @@ import { SectionHeading } from '../ui/SectionHeading';
 import { AnimatedButton } from '../ui/AnimatedButton';
 import { GlassCard } from '../ui/GlassCard';
 import { HERO } from '../../utils/constants';
+import { sectionRevealVariants } from '../../utils/animations';
 
 export function Contact() {
   const [contactForm, setContactForm] = useState({ subject: '', name: '', email: '', message: '' });
@@ -39,8 +40,14 @@ export function Contact() {
   ];
 
   return (
-    <section id="contact" className="py-16 md:py-24">
-      <div className="max-w-3xl mx-auto px-6">
+    <section id="contact" className="pt-16 pb-8 md:pt-24 md:pb-12">
+      <motion.div
+        initial="initial"
+        whileInView="whileInView"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={sectionRevealVariants}
+        className="max-w-3xl mx-auto px-6"
+      >
         <SectionHeading title="Let's Connect" subtitle="Have a project in mind? Let's discuss how I can help." accentColor="blue" />
 
         <div className="space-y-8">
@@ -150,7 +157,7 @@ export function Contact() {
             ))}
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

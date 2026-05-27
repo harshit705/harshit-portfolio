@@ -15,7 +15,7 @@ export function Navbar({ activeSection, onSectionChange }: NavbarProps) {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 30);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -24,53 +24,68 @@ export function Navbar({ activeSection, onSectionChange }: NavbarProps) {
   return (
     <motion.header
       className={`sticky top-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'border-b border-blue-700/60 bg-[#0a1833]/80 backdrop-blur-xl' : 'bg-[#0a1833]/60 backdrop-blur-md'
+        isScrolled 
+          ? 'border-b border-slate-800/80 bg-[#030712]/75 backdrop-blur-xl shadow-md shadow-cyan-950/5' 
+          : 'bg-[#030712]/30 backdrop-blur-sm border-b border-transparent'
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.6 }}
+      transition={{ duration: 0.5 }}
     >
-      <nav className="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
+      <nav className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+        
+        {/* Brand Logo */}
         <motion.a
-          href="#about"
-          className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent"
+          href="#hero"
+          className="text-2xl font-bold bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-300 bg-clip-text text-transparent tracking-tight flex items-center gap-1.5"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          HA
+          <span className="text-cyan-400">&lt;</span>
+          <span>HA</span>
+          <span className="text-cyan-400">/&gt;</span>
         </motion.a>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex gap-8">
+        <div className="hidden md:flex items-center gap-2 bg-slate-900/40 border border-slate-800/50 p-1.5 rounded-full backdrop-blur-2xl">
           {NAV_ITEMS.map((item) => (
             <motion.a
               key={item.id}
               href={`#${item.id}`}
               onClick={() => onSectionChange(item.id)}
-              className={`text-sm font-medium transition-all duration-300 pb-2 border-b-2 ${
+              className={`text-xs font-semibold px-4 py-2 rounded-full relative transition-colors duration-300 ${
                 activeSection === item.id
-                  ? 'text-blue-400 border-blue-400'
-                  : 'text-gray-400 border-transparent hover:text-blue-400'
+                  ? 'text-cyan-300'
+                  : 'text-slate-400 hover:text-slate-200'
               }`}
-              whileHover={{ y: -2 }}
             >
-              {item.label}
+              <span className="relative z-10">{item.label}</span>
+              {activeSection === item.id && (
+                <motion.span
+                  layoutId="activePill"
+                  className="absolute inset-0 bg-blue-500/10 border border-blue-500/20 rounded-full shadow-sm shadow-blue-500/5"
+                  transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  style={{ zIndex: 0 }}
+                />
+              )}
             </motion.a>
           ))}
         </div>
 
-        <AnimatedButton href="/resume.pdf" download variant="primary" className="hidden md:flex">
-          <Download size={16} />
+        {/* Resume Button */}
+        <AnimatedButton href="/resume.pdf" download variant="primary" className="hidden md:flex py-1.5 px-5 text-xs">
+          <Download size={14} />
           Resume
         </AnimatedButton>
 
         {/* Mobile Menu Button */}
         <motion.button
-          className="md:hidden text-gray-400 hover:text-blue-400 transition-colors"
+          className="md:hidden text-slate-400 hover:text-cyan-400 transition-colors p-1"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           whileTap={{ scale: 0.95 }}
+          aria-label="Toggle Menu"
         >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
         </motion.button>
       </nav>
 
@@ -78,8 +93,8 @@ export function Navbar({ activeSection, onSectionChange }: NavbarProps) {
       <motion.div
         initial={{ opacity: 0, height: 0 }}
         animate={{ opacity: mobileMenuOpen ? 1 : 0, height: mobileMenuOpen ? 'auto' : 0 }}
-        transition={{ duration: 0.3 }}
-        className={`md:hidden overflow-hidden bg-[#0a1833]/90 backdrop-blur-md ${mobileMenuOpen ? 'border-b border-blue-700/60' : ''}`}
+        transition={{ duration: 0.2 }}
+        className={`md:hidden overflow-hidden bg-[#030712]/95 backdrop-blur-xl ${mobileMenuOpen ? 'border-b border-slate-800' : ''}`}
       >
         <div className="px-6 py-4 space-y-3">
           {NAV_ITEMS.map((item) => (
@@ -90,14 +105,16 @@ export function Navbar({ activeSection, onSectionChange }: NavbarProps) {
                 onSectionChange(item.id);
                 setMobileMenuOpen(false);
               }}
-              className={`block text-sm font-medium py-2 transition-colors ${
-                activeSection === item.id ? 'text-blue-400' : 'text-gray-400 hover:text-blue-400'
+              className={`block text-sm font-semibold py-2 px-3 rounded-lg transition-colors ${
+                activeSection === item.id 
+                  ? 'text-cyan-300 bg-blue-500/10 border border-blue-500/20' 
+                  : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/30'
               }`}
             >
               {item.label}
             </motion.a>
           ))}
-          <AnimatedButton href="/resume.pdf" download variant="primary" className="w-full mt-4">
+          <AnimatedButton href="/resume.pdf" download variant="primary" className="w-full mt-4 py-2.5 text-sm">
             <Download size={16} />
             Resume
           </AnimatedButton>

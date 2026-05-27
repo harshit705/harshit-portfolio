@@ -14,10 +14,16 @@ export function SectionHeading({ title, subtitle, icon, accentColor = 'blue' }: 
     purple: 'from-white to-purple-300 via-purple-200 border-purple-400',
   };
 
+  const iconColorMap = {
+    blue: 'text-blue-400',
+    cyan: 'text-cyan-400',
+    purple: 'text-purple-400',
+  };
+
   return (
     <div className="mb-8">
       <div className="flex items-center gap-3 mb-4">
-        {icon && <div className={`text-${accentColor}-400`}>{icon}</div>}
+        {icon && <div className={iconColorMap[accentColor]}>{icon}</div>}
         <h3 className={`text-4xl md:text-5xl font-bold bg-gradient-to-r ${colorMap[accentColor]} bg-clip-text text-transparent`}>
           {title}
         </h3>

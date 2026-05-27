@@ -3,11 +3,18 @@ import { Award, Briefcase } from 'lucide-react';
 import { SectionHeading } from '../ui/SectionHeading';
 import { GlassCard } from '../ui/GlassCard';
 import { EXPERIENCES } from '../../utils/constants';
+import { sectionRevealVariants } from '../../utils/animations';
 
 export function Experience() {
   return (
     <section id="experience" className="bg-gradient-to-b from-transparent via-blue-950/10 to-transparent py-16 md:py-24">
-      <div className="max-w-6xl mx-auto px-6">
+      <motion.div
+        initial="initial"
+        whileInView="whileInView"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={sectionRevealVariants}
+        className="max-w-6xl mx-auto px-6"
+      >
         <SectionHeading
           title="Experience & Timeline"
           accentColor="blue"
@@ -70,7 +77,7 @@ export function Experience() {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

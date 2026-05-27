@@ -3,11 +3,18 @@ import { CheckCircle } from 'lucide-react';
 import { SectionHeading } from '../ui/SectionHeading';
 import { GlassCard } from '../ui/GlassCard';
 import { CERTIFICATIONS } from '../../utils/constants';
+import { sectionRevealVariants } from '../../utils/animations';
 
 export function Certifications() {
   return (
-    <section className="bg-gradient-to-b from-transparent via-cyan-950/10 to-transparent py-16 md:py-24">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="certifications" className="bg-gradient-to-b from-transparent via-cyan-950/10 to-transparent py-16 md:py-24">
+      <motion.div
+        initial="initial"
+        whileInView="whileInView"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={sectionRevealVariants}
+        className="max-w-6xl mx-auto px-6"
+      >
         <SectionHeading
           title="Certifications & Achievements"
           accentColor="cyan"
@@ -33,7 +40,7 @@ export function Certifications() {
             </div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
