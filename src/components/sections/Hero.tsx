@@ -26,9 +26,9 @@ export function Hero() {
           animate="show"
           variants={containerVariants}
         >
-          {/* Glowing Badge */}
+          {/* Badge */}
           <motion.div variants={itemVariants} className="inline-block">
-            <div className="flex items-center gap-2 px-4 py-2 border border-blue-500/35 rounded-full text-blue-300 text-xs font-semibold bg-blue-500/10 backdrop-blur-md uppercase tracking-wider shadow-sm shadow-blue-500/10">
+            <div className="flex items-center gap-2 px-4 py-2 border border-blue-500/35 rounded-full text-blue-300 text-xs font-semibold bg-blue-500/10 backdrop-blur-md tracking-wide shadow-sm shadow-blue-500/10">
               <Cpu size={14} className="text-cyan-400 animate-pulse" />
               👋 Welcome to my Portfolio
             </div>
@@ -68,11 +68,11 @@ export function Hero() {
             </div>
           </motion.div>
 
-          {/* Social Proof Focus Chips */}
+          {/* Key Highlights */}
           <motion.div variants={itemVariants} className="space-y-2 border-l-2 border-slate-700/60 pl-4 py-0.5">
             {focusChips.map((chip, idx) => (
               <div key={idx} className="flex items-center gap-2 text-xs md:text-sm text-slate-400">
-                <CheckCircle2 size={14} className="text-cyan-400 flex-shrink-0" />
+                <CheckCircle2 size={13} className="text-cyan-400 flex-shrink-0" />
                 <span>{chip}</span>
               </div>
             ))}
