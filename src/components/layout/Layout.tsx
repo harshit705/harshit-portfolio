@@ -45,7 +45,7 @@ export function Layout({ children }: LayoutProps) {
   }, []);
 
   return (
-    <div className="w-full min-h-screen bg-[#0a1833] text-gray-100 relative overflow-x-hidden">
+    <div className="w-full min-h-screen bg-[#0a1833] text-gray-100 relative">
       <AnimatedBackground />
 
       <Navbar activeSection={activeSection} onSectionChange={setActiveSection} />

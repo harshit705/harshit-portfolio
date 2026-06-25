@@ -4,15 +4,16 @@ import { Project, Experience, Skill, Certification, NavItem } from './types';
 export const NAV_ITEMS: NavItem[] = [
   { id: 'about', label: 'About' },
   { id: 'experience', label: 'Experience' },
-  { id: 'projects', label: 'Projects' },
   { id: 'skills', label: 'Skills' },
+  { id: 'projects', label: 'Projects' },
+  { id: 'certifications', label: 'Certifications' },
   { id: 'contact', label: 'Contact' },
 ];
 
 export const PROJECTS: Project[] = [
   {
     id: 'tenderSathi',
-    title: 'TenderSathi — AI-Powered Tender Aggregation Platform',
+    title: 'TenderSathi - AI-Powered Tender Aggregation Platform',
     description: 'Data Ingestion Engineering & Pipeline Optimization',
     longDescription: 'Enterprise-grade tender aggregation platform handling thousands of raw PDF sources daily. Built resilient async extraction pipelines using Python, custom multithreading, and advanced PostgreSQL indexing to index and query structured metadata in real-time.',
     tags: ['Python', 'PostgreSQL', 'React.js', 'REST APIs', 'Async Tasks', 'Multithreading'],
@@ -29,7 +30,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'psai',
-    title: 'PSAI — Enterprise Conversational AI Engine',
+    title: 'PSAI - Enterprise Conversational AI Engine',
     description: 'Autonomous Context Assembly & API Optimization',
     longDescription: 'Production-ready chatbot platform equipped with robust JWT session control, real-time socket connections, and reactive message handling. Architected an optimized database pipeline to stream tokens directly into web clients.',
     tags: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'WebSockets', 'Async Tasks'],

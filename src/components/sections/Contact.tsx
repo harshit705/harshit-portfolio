@@ -40,7 +40,7 @@ export function Contact() {
   ];
 
   return (
-    <section id="contact" className="pt-16 pb-8 md:pt-24 md:pb-12">
+    <section id="contact" className="min-h-[85vh] pt-16 pb-8 md:pt-24 md:pb-12 flex flex-col justify-center">
       <motion.div
         initial="initial"
         whileInView="whileInView"

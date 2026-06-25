@@ -7,7 +7,7 @@ import { sectionRevealVariants } from '../../utils/animations';
 
 export function Certifications() {
   return (
-    <section id="certifications" className="bg-gradient-to-b from-transparent via-cyan-950/10 to-transparent py-16 md:py-24">
+    <section id="certifications" className="min-h-[85vh] bg-gradient-to-b from-transparent via-cyan-950/10 to-transparent py-16 md:py-24 flex flex-col justify-center">
       <motion.div
         initial="initial"
         whileInView="whileInView"

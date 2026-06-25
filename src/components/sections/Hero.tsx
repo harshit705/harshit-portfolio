@@ -7,7 +7,7 @@ import { GlassCard } from '../ui/GlassCard';
 
 export function Hero() {
   const focusChips = [
-    'TenderSathi — AI Ingestion & Procurement Platform',
+    'TenderSathi - AI Ingestion & Procurement Platform',
     'AI-Driven Media Processing & Audio Diarization',
     'Core Stack: React + Python + PostgreSQL + LLM Engine',
   ];
@@ -30,7 +30,7 @@ export function Hero() {
           <motion.div variants={itemVariants} className="inline-block">
             <div className="flex items-center gap-2 px-4 py-2 border border-blue-500/35 rounded-full text-blue-300 text-xs font-semibold bg-blue-500/10 backdrop-blur-md uppercase tracking-wider shadow-sm shadow-blue-500/10">
               <Cpu size={14} className="text-cyan-400 animate-pulse" />
-              AI Systems Engineer
+              👋 Welcome to my Portfolio
             </div>
           </motion.div>
 
@@ -38,10 +38,10 @@ export function Hero() {
           <motion.div variants={itemVariants} className="space-y-4">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight">
               <span className="bg-gradient-to-r from-white via-slate-100 to-blue-200 bg-clip-text text-transparent">
-                Engineering intelligent
+                Hi, I'm Harshit Agrawal
               </span>
               <span className="block bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-300 bg-clip-text text-transparent mt-1">
-                products & AI systems.
+                AI Systems & Full-Stack Engineer.
               </span>
             </h1>
             <p className="text-base md:text-lg text-slate-350 leading-relaxed font-normal">
@@ -89,16 +89,17 @@ export function Hero() {
               className="group gap-2"
             >
               <Play size={16} className="fill-white group-hover:scale-110 transition-transform" />
-              View Systems
+              Explore Projects
             </AnimatedButton>
             <AnimatedButton
               href={HERO.cta.resume}
-              download
+              target="_blank"
+              rel="noopener noreferrer"
               variant="secondary"
               className="gap-2 border-slate-700 bg-slate-800/40 hover:bg-slate-800"
             >
               <Download size={16} />
-              Resume
+              View Resume
             </AnimatedButton>
 
             {/* Subtle borderless social links */}

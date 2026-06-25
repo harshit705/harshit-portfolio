@@ -84,7 +84,7 @@ export const buttonVariants: Variants = {
   tap: { scale: 0.97 },
 };
 
-export const sectionRevealVariants = {
+export const sectionRevealVariants: Variants = {
   initial: { opacity: 0, y: 30 },
   whileInView: {
     opacity: 1,

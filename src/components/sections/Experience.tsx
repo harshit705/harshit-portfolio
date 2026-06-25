@@ -7,7 +7,7 @@ import { sectionRevealVariants } from '../../utils/animations';
 
 export function Experience() {
   return (
-    <section id="experience" className="bg-gradient-to-b from-transparent via-blue-950/10 to-transparent py-16 md:py-24">
+    <section id="experience" className="min-h-[85vh] bg-gradient-to-b from-transparent via-blue-950/10 to-transparent py-16 md:py-24 flex flex-col justify-center">
       <motion.div
         initial="initial"
         whileInView="whileInView"

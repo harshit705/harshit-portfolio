@@ -7,7 +7,7 @@ import { sectionRevealVariants } from '../../utils/animations';
 
 export function About() {
   return (
-    <section id="about" className="py-16 md:py-24 relative overflow-hidden">
+    <section id="about" className="min-h-[85vh] py-16 md:py-24 relative overflow-hidden flex flex-col justify-center">
       <motion.div
         initial="initial"
         whileInView="whileInView"

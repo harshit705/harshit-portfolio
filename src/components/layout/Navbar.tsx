@@ -73,9 +73,15 @@ export function Navbar({ activeSection, onSectionChange }: NavbarProps) {
         </div>
 
         {/* Resume Button */}
-        <AnimatedButton href="/resume.pdf" download variant="primary" className="hidden md:flex py-1.5 px-5 text-xs">
+        <AnimatedButton
+          href="/resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          variant="primary"
+          className="hidden md:flex py-1.5 px-5 text-xs"
+        >
           <Download size={14} />
-          Resume
+          View Resume
         </AnimatedButton>
 
         {/* Mobile Menu Button */}
@@ -114,9 +120,15 @@ export function Navbar({ activeSection, onSectionChange }: NavbarProps) {
               {item.label}
             </motion.a>
           ))}
-          <AnimatedButton href="/resume.pdf" download variant="primary" className="w-full mt-4 py-2.5 text-sm">
+          <AnimatedButton
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            variant="primary"
+            className="w-full mt-4 py-2.5 text-sm"
+          >
             <Download size={16} />
-            Resume
+            View Resume
           </AnimatedButton>
         </div>
       </motion.div>
